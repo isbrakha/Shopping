@@ -6,7 +6,8 @@ module.exports = {
     create,
     show,
     delete: deleteProduct,
-    edit: editProduct
+    edit: editProduct,
+    update: updateProduct
 }
 
 async function index(req,res) {
@@ -60,6 +61,17 @@ async function editProduct(req,res){
         const product = await Product.findById(req.params.id)
         res.render(`products/edit`, {title: "Edit Product", product})
     } catch(err) {
+        console.log(err)
         res.redirect('/')
     }
+}
+
+async function updateProduct(req,res){
+    try {
+        const updatedProd = await Product.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    } catch(err) {
+        console.log(err)
+        res.redirect('/')
+    }
+
 }
