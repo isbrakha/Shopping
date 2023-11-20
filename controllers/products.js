@@ -4,7 +4,8 @@ module.exports = {
     index,
     new: newMovie,
     create,
-    show
+    show,
+    delete: deleteProduct
 }
 
 async function index(req,res) {
@@ -41,4 +42,14 @@ async function show(req,res) {
         res.redirect('/')
     }
 
+}
+
+async function deleteProduct(req,res){
+    try {
+        await Product.destroy(req.params.id) 
+        res.redirect('/products')
+    } catch(err) {
+        console.log(err)
+        res.redirect('/')
+    }
 }
