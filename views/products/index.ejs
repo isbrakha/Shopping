@@ -1,19 +1,16 @@
 <%- include('../partials/header') %>
 
 <h2>List of Products</h2>
-<table id="list">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Release Year</th>
+      <th>PRODUCT NAME</th>
     </tr>
-  </thead>
+  </thead><br>
   <tbody>
-    <% movies.forEach(m => { %>
+    <% products.forEach(p => { %>
       <tr>
-        <td><%= m.title %></td>
-        <td><%= m.releaseYear %></td>
-        <td><a href="/movies/<%= m._id %>">DETAILS</a></td>
+        <td><%= p.name %></td>
+        <td><a href="/products/<%= p._id %>">DETAILS</a></td><br>
       </tr>
     <% }) %>
   </tbody>
