@@ -2,18 +2,21 @@
 <section></section>
     <div>Name: </div>
     <div>
-      <%= products.name %>
+      <%= product.name %>
     </div>
     <div>Price: </div>
     <div>
-      <%= products.price %>
+      <%= product.price %>
     </div>
     <div>Category: </div>
     <div>
-      <%= products.category %>
+      <%= product.category %>
     </div>
-    <form action="<%= products._id %>?_method=DELETE" method="POST">
+    <form action="<%= product._id %>?_method=DELETE" method="POST">
         <button type="submit">Remove Product</button>
+    </form>
+    <form action="<%= product._id %>/edit" method="GET">
+        <button type="submit">Edit Product</button>
     </form>
 </section>
 <%- include('../partials/footer') %>

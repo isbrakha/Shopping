@@ -37,7 +37,7 @@ async function show(req,res) {
     try {
         const product = await Product.findById(req.params.id)
 
-        res.render('products/show', { title: 'Product Details', products: product})
+        res.render('products/show', { title: 'Product Details', product: product})
     } catch (err) {
         console.log(err)
         res.redirect('/')
@@ -58,7 +58,7 @@ async function deleteProduct(req,res){
 async function editProduct(req,res){
     try {
         const product = await Product.findById(req.params.id)
-        res.render('products/edit', {product})
+        res.render(`products/edit`, {title: "Edit Product", product})
     } catch(err) {
         res.redirect('/')
     }
