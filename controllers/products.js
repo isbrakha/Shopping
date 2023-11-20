@@ -5,7 +5,8 @@ module.exports = {
     new: newMovie,
     create,
     show,
-    delete: deleteProduct
+    delete: deleteProduct,
+    edit: editProduct
 }
 
 async function index(req,res) {
@@ -50,6 +51,15 @@ async function deleteProduct(req,res){
         res.redirect('/products')
     } catch(err) {
         console.log(err)
+        res.redirect('/')
+    }
+}
+
+async function editProduct(req,res){
+    try {
+        const product = await Product.findById(req.params.id)
+        res.render('products/edit', {product})
+    } catch(err) {
         res.redirect('/')
     }
 }
