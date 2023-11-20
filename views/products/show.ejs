@@ -12,6 +12,8 @@
     <div>
       <%= products.category %>
     </div>
-    
+    <form action="<%= products._id %>?_method=DELETE" method="POST">
+        <button type="submit">Remove Product</button>
+    </form>
 </section>
 <%- include('../partials/footer') %>

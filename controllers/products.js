@@ -46,7 +46,7 @@ async function show(req,res) {
 
 async function deleteProduct(req,res){
     try {
-        await Product.destroy(req.params.id) 
+        await Product.findByIdAndDelete(req.params.id) 
         res.redirect('/products')
     } catch(err) {
         console.log(err)
